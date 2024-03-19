@@ -6,14 +6,14 @@ import axios from "axios";
 
 const router = new Navigo("/");
 
-function render(state = store.Home) {
+function render(state) {
   document.querySelector("#root").innerHTML = `
       ${Header(state)}
       ${Nav(store.Links)}
       ${Main(state)}
       ${Footer()}
     `;
-  afterRender();
+  afterRender(state);
   router.updatePageLinks();
 }
 
